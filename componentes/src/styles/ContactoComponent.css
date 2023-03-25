@@ -1,0 +1,24 @@
+.contacto-container{
+  width: 80%;
+  background-color: aquamarine;
+
+  border-radius: 10px;
+  margin: 0 auto;
+
+
+}
+
+.text {
+  font-size: 20px;
+  
+}
+.toggle {
+  margin-left: 10px;
+}
+.toggle:hover {
+  cursor:pointer;
+}
+
+.trash {
+  color: tomato;
+}

@@ -1,16 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Contacto} from '../model/Contacto.js'
+import '../styles/ContactoComponent.css'
 
 //Componente B
-function ContactoComponent({contacto}) {
+
+
+function ContactoComponent({contacto,changeStatus,deleteContact}) {
+
+  function toggleButton(valor){
+    return valor ? <i onClick={() => changeStatus(contacto)} className="bi bi-toggle-on toggle"></i> : <i onClick={() => changeStatus(contacto)} className="bi bi-toggle-off toggle"></i>
+  }
+
   return (
-    <>
-      <h2>Nombre: {contacto.nombre} {contacto.apellido}</h2>
-      <h2>Email: {contacto.email}</h2>
-      <h2>Estado: {contacto.conectado ? "En linea" : "No disponible"}</h2>
-      
-    </>
+    <div className='contacto-container'>
+      <h2 className='text'>Nombre: {contacto.nombre} {contacto.apellido} <i onClick={() => deleteContact(contacto)} className="bi bi-trash-fill toggle trash"></i></h2>
+      <h2 className='text'>Email: {contacto.email}</h2>
+      <h2 className='text'>Estado: {contacto.conectado ? "En linea" : "No disponible"} {toggleButton(contacto.conectado)}</h2>
+    </div>
 
   )
 }

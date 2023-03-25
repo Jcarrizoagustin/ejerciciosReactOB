@@ -1,0 +1,24 @@
+.form {
+  width: 80%;
+  margin: 0 auto;
+  background-color: rgb(197, 223, 223);
+  border-radius: 10px;
+}
+
+.imput-container {
+  width: 90%;
+  margin: 5px auto;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  width: 100px;
+  height: 25px;
+  margin-bottom: 10px;
+}
+
+.button:hover {
+  cursor: pointer;
+}

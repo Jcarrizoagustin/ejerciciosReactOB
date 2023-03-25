@@ -9,9 +9,9 @@ function App() {
 
   return (
     <div className="App">
-      {/*<ContactoContainer/>*/}
+      <ContactoContainer/>
       {/*<ComponenteConContexto/>*/}
-      <Clock/>
+      
       
     </div>
   )
