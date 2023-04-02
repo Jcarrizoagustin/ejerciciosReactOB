@@ -1,7 +1,7 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect,useState,useRef} from 'react'
 import './Cuadrado.css'
 const initialValues = {
-  red:0,
+  red:127,
   green:0,
   blue:0
 }
@@ -9,44 +9,39 @@ const initialValues = {
 function Cuadrado() {
 
   const [color,setColor] = useState(initialValues);
-  let intervalo;
+  let intervalo = useRef();
 
   function changeColor(){
-    intervalo = setInterval(() => {
-      let newColor = {
-        red:getRandomInt(255),
-        green:getRandomInt(255),
-        blue:getRandomInt(255)
-      }
-      setColor(newColor)
-    },1000);
+    let newColor = {
+      red:getRandomInt(255),
+      green:getRandomInt(255),
+      blue:getRandomInt(255)
+    }
+    setColor(newColor)
+  }
+
+  function inter(){
+    intervalo.current = setInterval(changeColor,1500)
   }
 
   
   useEffect(() => {
-    
     console.log(color)
-    console.log(intervalo)
-    
   },[color])
 
-  function handleDoubleClick(){
-    console.log("Doble click");
-    clearInterval(intervalo);
+  function stopChangeColor(){
+    console.log("fuera")
+    clearInterval(intervalo.current);
   }
 
-  function handleMouseOut(){
-    console.log("He salido");
-    clearInterval(intervalo);
-  }
-
+ 
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
 
   
   return (
-    <div onMouseOver={changeColor} onMouseOut={handleMouseOut} onDoubleClick={handleDoubleClick} className='cuadrado' style={{backgroundColor:`rgb(${color.red},${color.green},${color.blue})`}}>
+    <div onMouseOver={inter} onMouseOut={stopChangeColor} onDoubleClick={stopChangeColor} className='cuadrado' style={{backgroundColor:`rgb(${color.red},${color.green},${color.blue})`}}>
       
     </div>
   )

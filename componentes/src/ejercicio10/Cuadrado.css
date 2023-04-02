@@ -3,5 +3,11 @@
   height: 255px;
   background-color: #ad2b2b; 
 
+  border-radius: 10px;
+
   margin: 0 auto;
+
+  transition-duration:.2s;
+  transition-timing-function: ease-in;
+
 }
