@@ -2,6 +2,7 @@ import './App.css'
 import ContactoContainer from './components/ContactoContainer'
 import ComponenteConContexto from './hooks/Componente1'
 import Clock from './components/ComponenteFuncional'
+import Contenedor from './ejercicio10/Contenedor'
 
 
 function App() {
@@ -9,8 +10,9 @@ function App() {
 
   return (
     <div className="App">
-      <ContactoContainer/>
-      {/*<ComponenteConContexto/>*/}
+      {/*<ContactoContainer/>
+      <ComponenteConContexto/>*/}
+      <Contenedor/>
       
       
     </div>
